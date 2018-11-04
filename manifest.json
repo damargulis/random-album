@@ -1,0 +1,31 @@
+{
+    "name": "Random Album",
+    "version": "1.0",
+    "description": "Pick a random album from a Google Play Playlist",
+    "manifest_version": 2,
+    "permissions": ["*://*.google.com/music/listen*", "tabs" ],
+    "background": {
+        "scripts": ["command_handler.js"],
+        "persistent": true
+    },
+    "content_scripts": [{
+        "matches": ["*://*.google.com/music/listen*"],
+        "js": ["random_album.js"]
+    }],
+    "commands": {
+        "next-album": {
+            "suggested_key": {
+                "default": "MediaNextTrack"
+            },
+            "description": "Next album",
+            "global": true
+        },
+        "prev-album": {
+            "suggested_key": {
+                "default": "MediaPrevTrack"
+            },
+            "description": "Prev album",
+            "global": true
+        }
+    }
+}
