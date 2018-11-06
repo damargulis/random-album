@@ -38,10 +38,8 @@ function prevAlbum() {
 const playlist = [];
 let currentlyPlaying = -1;
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log('received command');
     switch (request.type) {
         case 'next-album':
-            console.log('calling next album');
             nextAlbum();
             break;
         case 'prev-album':
