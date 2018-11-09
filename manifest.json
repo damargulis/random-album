@@ -23,7 +23,7 @@
         },
         "prev-album": {
             "suggested_key": {
-                "default": "MediaPrevTrack"
+                "default": "MediaPrevTrack",
                 "chromeos":  "Ctrl+Shift+H"
             },
             "description": "Prev album",
