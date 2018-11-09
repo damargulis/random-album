@@ -15,7 +15,8 @@
     "commands": {
         "next-album": {
             "suggested_key": {
-                "default": "MediaNextTrack"
+                "default": "MediaNextTrack",
+                "chromeos":  "Ctrl+Shift+L"
             },
             "description": "Next album",
             "global": true
@@ -23,6 +24,7 @@
         "prev-album": {
             "suggested_key": {
                 "default": "MediaPrevTrack"
+                "chromeos":  "Ctrl+Shift+H"
             },
             "description": "Prev album",
             "global": true
