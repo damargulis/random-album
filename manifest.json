@@ -15,16 +15,14 @@
     "commands": {
         "next-album": {
             "suggested_key": {
-                "default": "MediaNextTrack",
-                "chromeos":  "Ctrl+Shift+L"
+                "default": "MediaNextTrack"
             },
             "description": "Next album",
             "global": true
         },
         "prev-album": {
             "suggested_key": {
-                "default": "MediaPrevTrack",
-                "chromeos":  "Ctrl+Shift+H"
+                "default": "MediaPrevTrack"
             },
             "description": "Prev album",
             "global": true

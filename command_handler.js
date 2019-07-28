@@ -1,6 +1,4 @@
 chrome.commands.onCommand.addListener((command) => {
-    console.log('sending command');
-    console.log(command);
     switch (command) {
         case "next-album":
             chrome.tabs.query({url: "*://*.google.com/music/listen*"}, (tabs) => {
