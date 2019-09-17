@@ -1,9 +1,29 @@
+
+const playlist = [];
+let currentlyPlaying = -1;
+let observer;
+
+function setupEndWatcher() {
+  if (observer) {
+    return;
+  }
+  const songInfoDiv = document.getElementById("playerSongInfo");
+  observer = new MutationObserver((mutations) => {
+    if (songInfoDiv.style.display == 'none') {
+      nextAlbum();
+    }
+  });
+  observer.observe(songInfoDiv,
+    {attributes: true, attributeFilter: ['style']});
+}
+
 function playAlbum() {
     const timerId = setInterval(() => {
         const playButton = document.getElementById('playButton');
         if (playButton) {
             clearInterval(timerId);
             playButton.click();
+            setupEndWatcher();
         }
     }, 100);
 }
@@ -15,7 +35,8 @@ function nextAlbum() {
         playAlbum();
     } else {
         window.location.href = "https://play.google.com/music/listen#/albums";
-        const shuffleButton = document.querySelector('[data-id="shuffle-my-library"]')
+        const shuffleButton = document.querySelector(
+          '[data-id="shuffle-my-library"]')
         shuffleButton.click();
         const albumDetails = document.getElementsByClassName("player-album");
         albumDetails[0].click();
@@ -35,8 +56,6 @@ function prevAlbum() {
     }
 }
 
-const playlist = [];
-let currentlyPlaying = -1;
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     switch (request.type) {
         case 'next-album':
