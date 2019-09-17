@@ -3,6 +3,7 @@ const playlist = [];
 let currentlyPlaying = -1;
 let observer;
 
+
 function setupEndWatcher() {
   if (observer) {
     return;
